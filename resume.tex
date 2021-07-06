@@ -1,0 +1,241 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors:
+% https://github.com/PandaScience/FortySecondsCV/graphs/contributors
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+% fine tune line spacing
+% \usepackage{setspace}
+% \setstretch{1.1}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Nicu-Razvan STANCIOIU}
+% job title/career
+\cvjobtitle{Software Engineer}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.jpg}
+
+% email address
+\cvmail{stancioiu.razvan@gmail.com}
+% linkedin account
+\cvcustomdata{\faLinkedin}{linkedin.com/in/razvanstancioiu}
+% github account
+\cvcustomdata{\faGithub}{https://github.com/rstancioiu}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	\graphicspath{{pics/programming/}}
+
+	\sidesection{Hard Skills}
+		\skill{\programming{cpp.png}}{\textbf{C/C++ Expert}}
+		\skill{\programming{python.png}}{\textbf{Python}}
+		\skill{\programming{git.png}}{\textbf{Git}}
+		\skill{\programming{bash.png}}{GNU Bash / UNIX}
+		\skill{\programming{windows.png}}{Windows API}
+		\skill{\programming{csharp.png}}{C\#}
+		\skill{\programming{docker.png}}{Docker}
+
+	\sidesection{Soft Skills}
+		\skill{\faHeart}{Quality Mindset}
+			\skill[1em]{\faCheck}{Clean Code \& Test driven development}
+			\skill[1em]{\faCheck}{Clients/users satisfaction}
+			\skill[1em]{\faCheck}{Fast feedback}
+		\skill{\faSkyatlas}{Creative thinking}
+			\skill[1em]{\faCheck}{Thinking outside of the box}
+			\skill[1em]{\faCheck}{Always search, improve and learn}
+		\skill{\faCogs}{Problem Solving}
+			\skill[1em]{\faCheck}{"50\% of the solution is defining the problem"}
+			\skill[1em]{\faCheck}{Everything is possible}
+		\skill{\faComments}{Teamwork}
+			\skill[1em]{\faCheck}{Love to share and discuss ideas}
+
+	\graphicspath{{pics/flags/shiny/}}
+	\sidesection{Languages}
+		\pointskill{\flag{RO.png}}{Romanian}{5}
+		\pointskill{\flag{GB.png}}{English}{5}
+	\pointskill{\flag{FR.png}}{French}{5}
+}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Working Experience}
+\begin{cvtable}[2.0]
+	\cvitem{2019 -- 2021}{Software Engineer}{Cintoo, France}{
+		-- Designed and created Cintoo SDK, a highly performant streaming mesh engine with an outh2 authentication,
+		easily integratable in Unreal 4 Engine and Unity 3D Engine projects - written fully in C++,
+		available for both Windows and Linux recent distributions with interfaces in C++, C and C\#.\\
+		-- Supervised and developed on Cintoo Unreal Plugin, a C++ plug-in using Cintoo SDK that will
+		be integrated in Unreal 4 Engine as a result of a collaboration between Cintoo and Epic Games. \\
+		-- Designed and developed a job process which imports cad models to Cintoo Cloud (IFC, RVT, NWD files) - translated
+		and improved Autodesk Forge SVF SDK written in Typescript into Python/C++ and heavily
+		improved the import of IFC cad model files. (Python, C++17)\\
+		-- Developed on and improved CintooConnect, an Windows Desktop Application which imports and exports scans and images: \\
+		Import - transforms different laser scan format files (E57, FLS, RCS) into mesh compressing data up to
+		10 times and prepares image format files (JPEG, PNG) for Cintoo Cloud upload.\\
+		Export - downloads the mesh data from Cintoo Cloud and transforms it back into scan format files
+		(E57, RCS) by a fast decompression process.\\
+		(Python, C++17)
+	}
+	\cvitem{2017 -- 2019}{Backend Software Engineer}{Amadeus Payment, France}{
+		- Lead developer on Alternative Methods of Payments backend framework linking
+		airlines using Amadeus Payment System to more than 20 different payment providers
+		like Adyen or Paypal. (C++03/11, Python, Oracle)\\
+		- Developed a stateless dynamic micro-services orchestrator and getaway for Amadeus travel payment
+		solutions which allows customers to dinamically customize and perform complex payment flows.
+		(C++03/11, Drools) 
+	}
+	\cvitem{2017 -- 6 mos}{Software Engineer Intern}{Dimo Software - Liris INSA Lyon}{
+		- Automated the process of expense report management by live computing the details of an expense 
+		from an image or a video.\\
+		Developed an Android application that captures a well-focused image, sends it to a 
+		Python server which transforms it into text using Google OCR framework. 
+		Using machine learning, once the text document is created, 
+		the total and the TVA will be automatically calculated and the client 
+		would be updated with this information.
+		(React Native JS, Android Java, Python)
+	}
+	\cvitem{2016 - 5 mos}{Software Researcher Intern}{Liris INSA Lyon - CNRS France}{
+		- Worked on improving the detection of space objects based on computation of huge
+		astrophysics databases. \\
+		As a result, I published the paper "Discovering Injective Mapping Between Relations in Astrophysics Databases" which
+		I presented at the international conference ISIP Lyon 2016. (C++)
+	}
+\end{cvtable}
+
+
+\cvsection{Education}
+\begin{cvtable}[1.5]
+	\cvitem{2012 -- 2017}{Computer Science - \\ Engineer degree, Master degree in informatics} {INSA Lyon}
+		{Option: Cloud Computing, Distributed Systems and Parallel}
+	\cvitem{2008 -- 2012}{Baccalaureate}{Colegiul National "Fratii Buzesti" Craiova}{
+		Option: Mathematics and Informatics
+	}
+\end{cvtable}
+
+
+\cvsection{Awards}
+\begin{cvtable}
+	\cvitem{2016}{13th place ACM ICPC South-Western Europe Regional Contest}{Portugal}{}
+	\cvitem{2015}{23rd place ACM ICPC South-Western Europe Regional Contest}{Portugal}{}
+	\cvitem{2015}{Qualified to Google Hash Code Finals}{Paris, France}{}
+	\cvitem{2015 -- now}{Qualified to Round 2 or Round 3 of Google CodeJam}{}{}
+	\cvitem{2017 -- now}{Qualified to Round 2 of Facebook HackerCup}{}{}
+	\cvitem{2011}{Member of the Romanian Team for the Balkan Mathematical Olympiad}{}{}
+	\cvitem{2010}{Gold Medal and 3rd Prize at Romanian National Mathematical Olympiad}{}{}
+\end{cvtable}
+
+
+\end{document}
