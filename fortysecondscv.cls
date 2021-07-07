@@ -370,7 +370,7 @@
 					(1, 1) [sharp corners] --
 					(1, 0) [sharp corners] -- cycle;
 				\node[anchor=center, inner sep=0pt, xshift=\profilepicxshift,
-						yshift=\profilepicyshift] (profilepic) at (0.5, 0.35)
+						yshift=\profilepicyshift] (profilepic) at (0.5, 0.33)
 					{\includegraphics[width=\profilepiczoom\profilepicsize]
 						{\cvprofilepic}};
 			\end{scope}
